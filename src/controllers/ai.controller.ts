@@ -34,12 +34,10 @@ export const goalGeneratorHandler = async ({
       }
       bio = talent.bio;
       interests = talent.interests;
-      experience = talent.experience;
-    } else if (body.bio && body.interests && body.experience) {
+    } else if (body.bio && body.interests) {
       // use the body data
       bio = body.bio;
       interests = body.interests;
-      experience = body.experience;
     } else {
       return new Response(
         JSON.stringify({ error: `Invalid request, check the input body.` }),
@@ -49,7 +47,6 @@ export const goalGeneratorHandler = async ({
     // user prompt.
     const prompt = `
   Bio: ${bio}
-  Experience: ${experience.join(", ")}
   Interests: ${interests.join(", ")}
   `;
     // initialize the OpenAI chat model
@@ -89,12 +86,11 @@ export const goalDescriptionGeneratorHandler = async ({
     talentId?: string;
     bio?: string;
     interests?: string[];
-    experience?: string[];
   };
 }) => {
   try {
     const { talentId, goal } = body;
-    let bio: string, interests: string[], experience: string[];
+    let bio: string, interests: string[];
 
     if (talentId) {
       const talent = await fetchTalent(talentId);
@@ -109,12 +105,10 @@ export const goalDescriptionGeneratorHandler = async ({
       }
       bio = talent.bio;
       interests = talent.interests;
-      experience = talent.experience;
-    } else if (body.bio && body.interests && body.experience) {
+    } else if (body.bio && body.interests) {
       // use the body data
       bio = body.bio;
       interests = body.interests;
-      experience = body.experience;
     } else {
       return new Response(
         JSON.stringify({ error: `Invalid request, check the input body.` }),
@@ -125,7 +119,6 @@ export const goalDescriptionGeneratorHandler = async ({
     const prompt = `
     Goal: ${goal}
     Bio: ${bio}
-    Experience: ${experience.join(", ")}
     Interests: ${interests.join(", ")}
     `;
     // initialize the OpenAI chat model

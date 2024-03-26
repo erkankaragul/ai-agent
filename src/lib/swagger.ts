@@ -46,7 +46,7 @@ export const goalGeneratorAPIDetails = {
   detail: {
     summary: "Generate a list goals for a talent based on their profile info",
     description:
-      "Given a talent ID, generate a list of goals based on their profile info (bio, experience and interests). You can also pass directly the bio, interests and experience of the user, without passing the Talent ID.",
+      "Given a talent ID, generate a list of goals based on their profile info (bio and interests). You can also pass directly the bio and interests of the user, without passing the Talent ID.",
     tags: ["AI"],
     responses: {
       200: {

@@ -21,7 +21,7 @@ export const app = new Elysia()
           title: "Talent Protocol AI API",
           version: "1.0.0",
           description:
-            "Welcome to the Swagger documentation for the AI API of Talent Protocol. You can generate goals based on the user profile info (bio, experience and interests) or generate descriptions of goals using AI.",
+            "Welcome to the Swagger documentation for the AI API of Talent Protocol. You can generate goals based on the user profile info (bio and interests) or generate descriptions of goals using AI.",
         },
         tags: [
           {
